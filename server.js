@@ -6,6 +6,7 @@ const morgan = require("morgan");
 const cors = require("cors");
 const { errorHandler } = require("./src/middleware/errorHandler");
 const PORT = process.env.PORT || 3000;
+const userRouter = require("./src/routes/user.route.js")
 
 connect();
 const app = express();
@@ -25,6 +26,7 @@ app.use(cors({
 
 
 // Routes 
+app.use("/api/users",userRouter)
 
 
 

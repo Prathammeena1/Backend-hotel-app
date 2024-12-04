@@ -30,6 +30,10 @@ const userSchema = new mongoose.Schema(
         ref: "Booking",
       },
     ],
+    isAdmin:{
+      type:Boolean,
+      default:false
+    }
   },
   { timestamps: true }
 );

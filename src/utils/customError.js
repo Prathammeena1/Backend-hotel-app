@@ -10,5 +10,4 @@ class CustomError extends Error {
     }
 }
 
-
-new CustomError("Error in connecting DB",500)
+export {CustomError}

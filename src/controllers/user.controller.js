@@ -1,7 +1,8 @@
 const User = require("../model/user.model.js");
-const { CustomError } = require("../utils/customError.js");
+const CustomError = require("../utils/customError.js")
 const bcrypt = require("bcrypt");
 const nodemailer = require("nodemailer");
+const jwt = require('jsonwebtoken')
 
 module.exports.currentUser = (req, res, next) => {
   res.status(200).json({
@@ -47,6 +48,7 @@ module.exports.login = async (req, res, next) => {
     if (!existingUser) return next(new CustomError("User already exist", 400));
 
     const user = await User.authenticate(email, password);
+   
 
     const token = user.generateAuthToken();
 
@@ -89,9 +91,14 @@ module.exports.updateProfile = async (req, res, next) => {
 
     await req.user.save();
 
+    const user = req.user;
+
+    // delete user.password; // Remove password from req.user object
+    // console.log(user)
+
     res.status(200).json({
       message: "Profile updated successfully",
-      user: req.user,
+      user: user,
     });
   } catch (error) {
     next(new CustomError(error.message, 500));

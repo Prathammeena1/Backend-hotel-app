@@ -31,3 +31,5 @@ exports.paymentConfirmationTemplate = (userName, propertyDetails, amount) => {
     <p>We look forward to hosting you soon.</p>
     `;
 };
+
+

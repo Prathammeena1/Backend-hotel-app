@@ -1,7 +1,7 @@
 const User = require("../model/user.model");
 const jwt = require("jsonwebtoken");
 
-exports.adminMiddleware = async (req, res, next) => {
+module.exports.adminMiddleware = async (req, res, next) => {
   try {
     const token = req.cookies.token;
     if (!token) return res.status(401).json({ message: "Unauthorized" });

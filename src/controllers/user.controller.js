@@ -87,7 +87,7 @@ module.exports.updateProfile = async (req, res, next) => {
   try {
     if (username) req.user.username = username;
     if (email) req.user.email = email;
-    if (password) req.user.password = await bcrypt.hash(password, 10);
+    if (password) req.user.password = password;
 
     await req.user.save();
 

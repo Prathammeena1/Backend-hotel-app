@@ -1,5 +1,5 @@
 const express = require('express');
-const adminMiddleware = require("../middleware/adminMiddleware.js");
+const {adminMiddleware} = require("../middleware/adminMiddleware.js");
 const { getUsers,deleteUser,getProperties,deleteProperty,getBookings, payments, singlePayment } = require('../controllers/admin.controller.js');
 const router = express.Router();
 

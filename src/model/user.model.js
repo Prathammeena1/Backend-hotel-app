@@ -48,14 +48,14 @@ userSchema.methods.generateAuthToken = function () {
 
 userSchema.statics.authenticate = async function (email, password) {
   const user = await this.findOne({ email }).select("+password");
-  console.log(user)
-
+  
   if (!user) {
     throw new Error("Invalid email or password");
   }
-
+  
   const isMatch = await bcrypt.compare(password, user.password);
-
+  
+  console.log(isMatch)
 
   if (!isMatch) {
     throw new Error("Invalid email or password");

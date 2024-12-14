@@ -10,7 +10,8 @@ const userRouter = require("./src/routes/user.route.js")
 const propertyRouter = require("./src/routes/property.route.js")
 const reviewRouter = require("./src/routes/review.route.js")
 const bookingRouter = require("./src/routes/booking.route.js")
-const adminRouter = require("./src/routes/admin.route.js")
+const adminRouter = require("./src/routes/admin.route.js");
+const paymentRouter = require("./src/routes/payment.route.js");
 
 connect();
 const app = express();
@@ -35,6 +36,7 @@ app.use("/api/properties",propertyRouter)
 app.use("/api/reviews",reviewRouter)
 app.use("/api/bookings",bookingRouter)
 app.use("/api/admin",adminRouter)
+app.use("/api/payments",paymentRouter)
 
 
 
